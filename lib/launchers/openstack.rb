@@ -31,6 +31,8 @@ module BushSlicer
       service_name = options[:service_name] ||
                      ENV['OPENSTACK_SERVICE_NAME'] ||
                      'openstack_upshift'
+      puts "default_opts: #{default_opts(service_name).inspect}"
+      puts "options: #{options.inspect}"
       @opts = default_opts(service_name).merge options
 
       @os_user = ENV['OPENSTACK_USER'] || opts[:user]
