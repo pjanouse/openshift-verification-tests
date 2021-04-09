@@ -341,6 +341,10 @@ module BushSlicer
       # get launch instances config
       service_name, launch_opts = merged_launch_opts(common_launch_opts, host_group[:launch_opts])
 
+      puts "\n\n\n=================================\n"
+      puts "launch_opts: #{launch_opts.inspect}\n"
+      puts "===============================\n"
+
       # get user data
       if launch_opts[:user_data]
         user_data_string = user_data(launch_opts[:user_data], user_data_vars)
@@ -350,6 +354,9 @@ module BushSlicer
       launch_opts.delete(:user_data)
 
       iaas = iaas_by_service(service_name)
+
+      puts "iaas: #{iaas.inspect}"
+
       launched = case iaas
       when BushSlicer::Amz_EC2
         launch_opts[:user_data] = Base64.encode64(user_data_string)
