@@ -74,6 +74,9 @@ module BushSlicer
       opts[:flavor] = ENV.fetch('OPENSTACK_FLAVOR_NAME') { opts[:flavor] }
       opts[:key] = ENV.fetch('OPENSTACK_KEY_NAME') { opts[:key] }
 
+      puts "\n\n\n========================================\n\n"
+      puts @os_user
+      puts "\n\n\n========================================\n\n"
       self.get_token()
     end
 
