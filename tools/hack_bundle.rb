@@ -39,7 +39,7 @@ gemfiles.each do |gemfile|
   File.write(gemfile_lock_new, File.read(gemfile_lock_last))
   File.delete(gemfile_lock_last)
 
-  command = "bundle install --gemfile=#{gemfile_new}"
+  command = "bundle install --gemfile=#{gemfile_new} --verbose"
   puts '$ ' + command
   system(command) # ignore errors
 
@@ -49,7 +49,7 @@ end
 File.write(main_gemfile_lock, File.read(gemfile_lock_last))
 File.delete(gemfile_lock_last)
 
-command = "bundle install --gemfile=#{main_gemfile}"
+command = "bundle install --gemfile=#{main_gemfile} --verbose"
 puts '$ ' + command
 ret = system(command)
 exit ret.nil? ? 2 : ret
