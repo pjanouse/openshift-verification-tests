@@ -22,6 +22,8 @@
 # This trickery is done to avoid recompiling problematic gems like nokogiri
 # when we have a local version installed.
 
+require 'resolv-replace'
+
 main_gemfile_dir = File.dirname __FILE__
 main_gemfile = File.join(main_gemfile_dir, "Gemfile")
 main_gemfile_lock = main_gemfile + ".lock"
